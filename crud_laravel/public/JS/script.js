@@ -5,13 +5,13 @@ const form = document.getElementById("cadastro");
 
 async function cadastroLivros() {
     try {
-        
+
 
         form.setAttribute("action", "/events/create");
         console.log(form.getAttribute("action"));
         document.getElementById("methodField").innerHTML = "";
         document.getElementById("titulo").setAttribute("value", "");
-        document.getElementById("autor").setAttribute("value","");
+        document.getElementById("autor").setAttribute("value", "");
         document.getElementById("descricao").setAttribute("value", "");
         document.getElementById("paginas").setAttribute("value", "");
         document.getElementById("anoPublicacao").setAttribute("value", "");
@@ -19,7 +19,7 @@ async function cadastroLivros() {
         document.getElementById("staticBackdropLabel").innerHTML = "Cadastrar Livro";
         meuModal.show();
     } catch (error) {
-        console.log("Erro: "+Erro)
+        console.log("Erro: " + Erro)
     }
 }
 
@@ -47,3 +47,22 @@ async function modal(id) {
         console.log("Erro:" + error)
     }
 }
+
+window.addEventListener("scroll", function () {
+
+    if (window.scrollY > 0) {
+        document.querySelector("#navbar").style.backgroundColor = "rgb(0, 0, 255, 0)";
+        document.querySelector("#logo-part-name").style.backgroundColor = "black";
+        this.document.querySelectorAll(".nav-link").forEach(link => {
+            link.classList.remove("text-white");
+        })
+        console.log("está a baixar")
+    } else {
+        document.querySelector("#navbar").style.backgroundColor = "rga(0, 0, 255, 0)";
+        document.querySelector("#logo-part-name").style.backgroundColor = "blue";
+        this.document.querySelectorAll(".nav-link").forEach(link => {
+            link.classList.add("text-white");
+        })
+        console.log("está no topo")
+    }
+})

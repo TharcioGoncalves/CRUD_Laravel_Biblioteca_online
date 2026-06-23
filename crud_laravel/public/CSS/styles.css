@@ -4,10 +4,12 @@
     font-size: 11px;
     font-family: "Poppins", sans-serif;
 }
-
+body{
+    scroll-behavior: smooth;
+}
 .nav-link:hover,
 .active:hover {
-    color: rgb(0, 72, 255);
+    color: rgb(0, 72, 255) !important;
 }
 
 thead tr th {
@@ -23,13 +25,27 @@ table {
     padding-left: 3px;
     padding-right: 3px;
 }
-body{
+
+body {
     padding: 0 !important;
 }
-.hero{
-    background-image:url(../frontImages/image2.jpeg) !important;
+
+.hero {
+    background-image: url(../frontImages/image2.jpeg) !important;
     background-position: center !important;
-    background-size:cover !important;
+    background-size: cover !important;
     filter: blur(-2px);
     background-repeat: no-repeat !important;
+}
+
+.book-content-title,
+.text-line {
+    color: #fff;
+}
+
+.book-text-content .text-line {
+    height: 2px;
+    width: 100px;
+    background-color: #fff;
+
 }

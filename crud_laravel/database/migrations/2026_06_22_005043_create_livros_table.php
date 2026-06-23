@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id")
+            ->constrained()
+            ->onDelete("CASCADE")
+            ->onUpdate("CASCADE");
             $table->string("titulo", 100);
             $table->string("autor", 100);
             $table->text("descricao");

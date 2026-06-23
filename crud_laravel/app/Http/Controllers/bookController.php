@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Livro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class bookController extends Controller
 {
@@ -33,7 +34,7 @@ class bookController extends Controller
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $extensao = $request->image->extension();
-            $imageName = md5($request->image->getClientOriginalName() . strtotime('now')).'.'.$extensao;
+            $imageName = md5($request->image->getClientOriginalName().strtotime('now')).'.'.$extensao;
 
             $request->image->move(public_path('img/imagens'), $imageName);
             $livro->image = $imageName;
@@ -61,9 +62,25 @@ class bookController extends Controller
         return response()->json($edit);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        Livro::findOrFail($request->id)->update($request->all());
+        $livro = Livro::findOrFail($id);
+
+        if($livro->image && Storage::disk("public")->exists($livro->image)){
+            Storage::disk("public")->delete($livro->image);
+        }
+        $extension = $request->image->extension();
+        $nomeImagem = md5($request->image->getClientOriginalName().strtotime('now')).'.'.$extension;
+        $request->image->move(public_path("img/imagens"), $nomeImagem);
+
+        Livro::findOrFail($request->id)->update([
+            "titulo" => $request->titulo,
+            "autor" => $request->autor,
+            "descricao" => $request->descricao,
+            "anoPublicacao" => $request->anoPublicacao,
+            "paginas" => $request->paginas,
+            "image" => $nomeImagem
+        ]);
 
         return redirect('/')->with('msg', 'Livro editado com sucesso');
     }

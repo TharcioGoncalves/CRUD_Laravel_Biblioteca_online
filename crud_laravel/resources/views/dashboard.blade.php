@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('titulo', 'Dashboard')
+@section('titulo', 'ReadBook - Dashboard')
 
 @section('content')
     <div class="container text-end">
