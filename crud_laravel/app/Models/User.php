@@ -46,4 +46,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function hasLivros(){
+        return $this->hasMany(Livro::Class);
+    }
 }

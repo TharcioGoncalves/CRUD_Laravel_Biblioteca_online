@@ -49,3 +49,6 @@ body {
     background-color: #fff;
 
 }
+.already-registered:hover{
+    opacity: 0.9;
+}

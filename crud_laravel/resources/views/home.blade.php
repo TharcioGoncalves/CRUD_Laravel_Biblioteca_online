@@ -36,7 +36,7 @@
                     @foreach ($livros as $l)
                         <div class="card border-0" style="width:150px;background-color:transparent;">
                             <img class="card-img-top" src="img/imagens/{{ $l->image }}" alt="{{ $l->titulo }}">
-                            <div class="card-body text-start d-flex flex-column justify-content-between">
+                            <div class="card-body text-start d-flex flex-column justify-content-between" style="background-color:red;">
                                 <h3 class="card-title text-white">{{ $l->titulo }}</h3>
                                 <p class="card-text text-white">{{ $l->descricao }}</p>
                                 <a class="btn btn-dark d-flex gap-2 px-2 py-1 align-items-center w-50" 
@@ -45,7 +45,9 @@
                         </div>
                     @endforeach
                 @else
-                    <p class="text-center">Não há livros cadastrados</p>
+                    <div class="without-content w-100">
+                        <p class="text-center text-white">Não há livros diponiveis!</p>
+                    </div>
                 @endif
             </div>
         </div>

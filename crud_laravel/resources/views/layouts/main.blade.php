@@ -31,17 +31,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link text-white">
+                    <a href="/user" class="nav-link text-white">
                         Meus Livros
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link text-white">
+                    <a href="/login" class="nav-link text-white">
                         Entrar
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="nav-link text-white">
+                    <a href="/cadastro" class="nav-link text-white">
                         Cadastrar
                     </a>
                 </li>

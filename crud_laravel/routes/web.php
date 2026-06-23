@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\bookController;
+use App\Http\Controllers\logController;
+
+Route::get("/login", [logController::class, "index"]);
+Route::get("/cadastro", [logController::class, "cadastrar"]);
 
 Route::get('/dashboard', [bookController::class, "index"]);
 Route::get('/', [bookController::class, "home"]);

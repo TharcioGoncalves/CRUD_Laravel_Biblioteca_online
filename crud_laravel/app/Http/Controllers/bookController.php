@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Livro;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,6 +40,7 @@ class bookController extends Controller
             $request->image->move(public_path('img/imagens'), $imageName);
             $livro->image = $imageName;
         }
+        $livro->user_id = 1;
         $livro->save();
 
         return redirect('/')->with('msg', 'Livro cadastrado com sucesso');
