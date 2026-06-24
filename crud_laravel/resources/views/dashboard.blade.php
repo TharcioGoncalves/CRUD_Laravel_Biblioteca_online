@@ -3,10 +3,10 @@
 @section('titulo', 'ReadBook - Dashboard')
 
 @section('content')
-    <div class="dashboard-content" style="">
+    <div class="dashboard-content vh-100 p-5" style="background-color:#18486f;">
         <div class="container text-end">
-            <button type="button" class="btn btn-primary my-3 mt-5 text-end" onclick="cadastroLivros()">
-                Cadastrar Livro
+            <button type="button" class="btn btn-dark rounded-1 my-3 mt-5 text-end" onclick="cadastroLivros()">
+                Adicionar Livro
             </button>
         </div>
         <div class="modal fade" id="modalCadastro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -59,35 +59,35 @@
                 </div>
             </div>
         </div>
-        <table class="table text-center mt-4 rounded-2 p-3">
+        <table class="table text-center mt-4 rounded-1 p-3">
             <thead>
                 <tr>
-                    <th scope="col" class="text-white">Id</th>
-                    <th scope="col" class="text-white">Título</th>
-                    <th scope="col" class="text-white">Autor</th>
-                    <th scope="col" class="text-white">Descrição</th>
-                    <th scope="col" class="text-white">Páginas</th>
-                    <th scope="col" class="text-white">Ano Publicação</th>
-                    <th scope="col" class="text-white">Acções</th>
+                    <th scope="col" class="text-dark">Id</th>
+                    <th scope="col" class="text-dark">Título</th>
+                    <th scope="col" class="text-dark">Autor</th>
+                    <th scope="col" class="text-dark">Páginas</th>
+                    <th scope="col" class="text-dark">Ano Publicação</th>
+                    <th scope="col" class="text-dark">Acções</th>
                 </tr>
             </thead>
             <tbody>
                 @if (count($livros) != 0)
                     @foreach ($livros as $l)
-                        <tr class="table-secundary">
+                        <tr class="table-light">
                             <td>{{ $l->id }}</td>
                             <td>{{ $l->titulo }}</td>
                             <td>{{ $l->autor }}</td>
-                            <td>{{ $l->descricao }}</td>
                             <td>{{ $l->paginas }}</td>
                             <td>{{ date('d/m/Y', strtotime($l->anoPublicacao)) }}</td>
                             <td class="d-flex gap-2 justify-content-center">
-                                <button class="btn btn-primary action" onclick="modal({{ $l->id }})">Editar</button>
+                                <button class="btn btn-transparent action" onclick="modal({{ $l->id }})"><i
+                                        class="bi edit bi-pencil-square fw-bolder" style="color:blue;"></i></button>
                                 <form action="/events/{{ $l->id }}" method="POST"
                                     onsubmit="return confirm('Tem certeza que deseja remover?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger action">Remover</button>
+                                    <button type="submit" class="btn btn-transparent action"><i
+                                            class="bi del bi-trash fw-bolder fs-5" style="color:red;"></i></button>
                                 </form>
                             </td>
                         </tr>

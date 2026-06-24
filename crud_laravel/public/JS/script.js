@@ -3,9 +3,9 @@ const modalB = document.getElementById("modalCadastro");
 const meuModal = new bootstrap.Modal(modalB)
 const form = document.getElementById("cadastro");
 
+
 async function cadastroLivros() {
     try {
-
 
         form.setAttribute("action", "/events/create");
         console.log(form.getAttribute("action"));
@@ -39,7 +39,7 @@ async function modal(id) {
         document.getElementById("descricao").innerHTML = livro.descricao;
         document.getElementById("paginas").setAttribute("value", livro.paginas);
         document.getElementById("anoPublicacao").setAttribute("value", livro.anoPublicacao);
-        document.getElementById("enviar").innerHTML = "Editar";
+        document.getElementById("enviar").innerHTML = "Actualizar";
         document.getElementById("staticBackdropLabel").innerHTML = "Editar Livro";
 
         meuModal.show();

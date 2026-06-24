@@ -35,10 +35,10 @@
                 @if (count($livros) != 0)
                     @foreach ($livros as $l)
                         <div class="card border-0" style="width:150px;background-color:transparent;">
-                            <img class="card-img-top" src="img/imagens/{{ $l->image }}" alt="{{ $l->titulo }}">
-                            <div class="card-body text-start d-flex flex-column justify-content-between" style="background-color:red;">
-                                <h3 class="card-title text-white">{{ $l->titulo }}</h3>
-                                <p class="card-text text-white">{{ $l->descricao }}</p>
+                            <img class="card-img-top m-2 rounded-1" src="img/imagens/{{ $l->image }}" alt="{{ $l->titulo }}">
+                            <div class="card-body text-start d-flex flex-column justify-content-between">
+                                <h3 class="card-title text-white fw-bold fs-5">{{ $l->titulo }}</h3>
+                                <p class="card-text">{{ $l->descricao }}</p>
                                 <a class="btn btn-dark d-flex gap-2 px-2 py-1 align-items-center w-50" 
                                 href="#"><i class="bi bi-play fs-5"></i><span>Ler</span></a>
                             </div>

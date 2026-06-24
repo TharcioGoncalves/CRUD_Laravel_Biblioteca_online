@@ -13,12 +13,20 @@ body{
 }
 
 thead tr th {
-    background-color: blue !important;
+    background-color: rgb(205, 205, 205) !important;
+}
+
+tbody tr td, 
+thead tr th{
+    font-size: 10px !important;
 }
 
 table {
     overflow: hidden !important;
+    max-width:650px !important;
+    margin: 0 auto;
 }
+
 
 .btn.action {
     padding: 1px;
@@ -54,4 +62,16 @@ body {
 }
 .return-back:hover{
     background-color:#0e3759;
+}
+.card-img-top{
+    width: 138px;
+    height: 100px;
+}
+.card-text{
+    font-size: 8px;
+    color: rgb(181, 181, 181);
+}
+
+.edit:hover,.del:hover{
+    opacity: 0.9 !important;
 }

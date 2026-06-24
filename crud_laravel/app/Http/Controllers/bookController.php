@@ -12,7 +12,7 @@ class bookController extends Controller
 {
     public function index()
     {
-        $livros = Livro::all();
+        $livros = Livro::where("user_id", Auth::id())->get();
 
         return view('dashboard', ['livros' => $livros]);
     }
