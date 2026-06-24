@@ -13,12 +13,12 @@
 </head>
 
 <body>
-    <header class="navbar navbar-expand-md fixed-top p-3" id="navbar">
+    <header class="navbar navbar-expand-md fixed-top p-3 d-flex justify-content-between" id="navbar">
         <div class="container-fluid">
             <a href="#" class="navbar-brand fw-bold text-white" style="font-size:18px;">Read<span
                     style="font-size:18px; color:blue;" id="logo-part-name">Book</span></a>
         </div>
-        <div class="collapse navbar-collapse" style="width:550px;">
+        <div class="collapse navbar-collapse" >
             <ul class="navbar-nav fw-bold">
                 <li class="nav-item">
                     <a href="/" class="nav-link text-white">
@@ -31,20 +31,29 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user" class="nav-link text-white">
+                    <a href="/user" class="nav-link text-white" style="min-width:80px;">
                         Meus Livros
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/login" class="nav-link text-white">
-                        Entrar
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/cadastro" class="nav-link text-white">
-                        Cadastrar
-                    </a>
-                </li>
+                @guest
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link text-white">
+                            Entrar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cadastro" class="nav-link text-white">
+                            Cadastrar
+                        </a>
+                    </li>
+                @endguest
+                @auth
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link text-white">
+                            Sair
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </header>

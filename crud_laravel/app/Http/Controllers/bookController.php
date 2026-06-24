@@ -6,6 +6,7 @@ use App\Models\Livro;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class bookController extends Controller
 {
@@ -40,7 +41,8 @@ class bookController extends Controller
             $request->image->move(public_path('img/imagens'), $imageName);
             $livro->image = $imageName;
         }
-        $livro->user_id = 1;
+        $user = Auth::User();
+        $livro->user_id = $user->id;
         $livro->save();
 
         return redirect('/')->with('msg', 'Livro cadastrado com sucesso');

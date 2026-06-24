@@ -13,11 +13,13 @@
 </head>
 
 <body>
+    <a class="return-back fixed-top pointer m-4 d-flex justify-content-center rounded-2" style="width: 30px"
+     href="/"><i class="bi bi-arrow-left text-white fs-3"></i></a>
     <div class="w-100 m-0 vh-100 d-flex justify-content-center align-items-center" style="background-color:#18486f;">
         <div class="form-content bg-white rounded-2 p-4 d-flex flex-column gap-2"
             style="width: 300px; min-height: text-content;">
-            <h2 class="login-text fs-3 fw-bold">@yield("logTitle")</h2>
-                @yield('content')
+            <h2 class="login-text fs-3 fw-bold">@yield('logTitle')</h2>
+            @yield('content')
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
