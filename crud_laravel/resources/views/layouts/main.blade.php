@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header class="navbar navbar-expand-md fixed-top p-3 d-flex justify-content-between" id="navbar">
+    <header class="navbar navbar-expand-md fixed-top p-3 d-flex justify-content-between bg-dark" id="navbar">
         <div class="container-fluid">
             <a href="#" class="navbar-brand fw-bold text-white" style="font-size:18px;">Read<span
                     style="font-size:18px; color:blue" id="logo-part-name">Book</span></a>
@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user" class="nav-link text-white" style="min-width:80px;">
+                    <a href="#" class="nav-link text-white" style="min-width:80px;">
                         Meus Livros
                     </a>
                 </li>
@@ -89,19 +89,19 @@
                     <h3 class="text-white fs-3 fw-bold">Links Rápidos</h3>
                     <ul class="list-unstyled fw-bold d-flex flex-column gap-3">
                         <li class="nav-item">
-                            <a href="/" class="nav-link text-white" style="font-size:9px;font-weight:200;">
+                            <a href="/" class="nav-link" style="font-size:9px;font-weight:200;color:white;">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link text-white" style="font-size:9px;font-weight:200;">
+                            <a href="/dashboard" class="nav-link" style="font-size:9px;font-weight:200;color:white;">
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/user" class="nav-link text-white"
+                            <a href="#" class="nav-link"
                                 style="min-width:80px;font-size:9px;
-                            font-weight:200;">
+                            font-weight:200;color:white;">
                                 Meus Livros
                             </a>
                         </li>
@@ -129,7 +129,8 @@
             </div>
             <hr class="text-white">
             <div class="footer-group2 d-flex justify-content-center align-items-center mt-4 m-0">
-                <p class="text-white m-0" style="font-size:9px;font-weight:200;">ReadBook Website - &copy; Direitos Reservados</p>
+                <p class="text-white m-0" style="font-size:9px;font-weight:200;">ReadBook Website - &copy; Direitos
+                    Reservados</p>
             </div>
         </div>
     </footer>

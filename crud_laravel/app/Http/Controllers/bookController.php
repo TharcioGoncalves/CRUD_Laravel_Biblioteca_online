@@ -12,9 +12,10 @@ class bookController extends Controller
 {
     public function index()
     {
+        $livrosDeletados = Livro::onlyTrashed()->get();
         $livros = Livro::where("user_id", Auth::id())->get();
 
-        return view('dashboard', ['livros' => $livros]);
+        return view('dashboard', ['livros' => $livros, "livrosDeletados" => $livrosDeletados]);
     }
 
     public function home()
@@ -45,14 +46,14 @@ class bookController extends Controller
         $livro->user_id = $user->id;
         $livro->save();
 
-        return redirect('/')->with('msg', 'Livro cadastrado com sucesso');
+        return redirect()->back()->with('msg', 'Livro cadastrado com sucesso');
     }
 
     public function destroy($id)
     {
         Livro::findOrFail($id)->delete();
 
-        return redirect('/')->with('msg', 'Livro eliminado com sucesso');
+        return redirect()->back()->with('msg', 'Livro eliminado com sucesso');
     }
 
     public function edit($id)
@@ -87,5 +88,18 @@ class bookController extends Controller
         ]);
 
         return redirect('/')->with('msg', 'Livro editado com sucesso');
+    }
+
+    public function restore($id){
+        $livro = Livro::withTrashed()->find($id);
+        $livro->restore();
+
+        return redirect()->back()->with("msg", "Restaurado com sucesso");
+    }
+    public function delete($id){
+        $livro = Livro::withTrashed()->find($id);
+        $livro->forceDelete();
+
+        return redirect()->back();
     }
 }

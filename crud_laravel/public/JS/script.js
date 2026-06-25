@@ -48,21 +48,3 @@ async function modal(id) {
     }
 }
 
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 0) {
-        document.querySelector("#navbar").style.backgroundColor = "rgb(0, 0, 255, 0)";
-        document.querySelector("#logo-part-name").style.backgroundColor = "black";
-        this.document.querySelectorAll(".nav-link").forEach(link => {
-            link.classList.remove("text-white");
-        })
-        console.log("está a baixar")
-    } else {
-        document.querySelector("#navbar").style.backgroundColor = "rga(0, 0, 255, 0)";
-        document.querySelector("#logo-part-name").style.backgroundColor = "blue";
-        this.document.querySelectorAll(".nav-link").forEach(link => {
-            link.classList.add("text-white");
-        })
-        console.log("está no topo")
-    }
-})

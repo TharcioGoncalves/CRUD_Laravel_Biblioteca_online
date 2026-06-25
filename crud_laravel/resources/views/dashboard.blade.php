@@ -3,12 +3,16 @@
 @section('titulo', 'ReadBook - Dashboard')
 
 @section('content')
-    <div class="dashboard-content vh-100 p-5" style="background-color:#18486f;">
-        <div class="container text-end">
+    <div class="dashboard-content vh-100 p-5 mt-5" style="background-color:#18486f;">
+        <div class="container text-end d-flex justify-content-between align-items-center px-5">
             <button type="button" class="btn btn-dark rounded-1 my-3 mt-5 text-end" onclick="cadastroLivros()">
                 Adicionar Livro
             </button>
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#lixeira">
+                Lixeira
+            </button>
         </div>
+
         <div class="modal fade" id="modalCadastro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -82,12 +86,11 @@
                             <td class="d-flex gap-2 justify-content-center">
                                 <button class="btn btn-transparent action" onclick="modal({{ $l->id }})"><i
                                         class="bi edit bi-pencil-square fw-bolder" style="color:blue;"></i></button>
-                                <form action="/events/{{ $l->id }}" method="POST"
-                                    onsubmit="return confirm('Tem certeza que deseja remover?');">
+                                <form action="/events/{{ $l->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-transparent action"><i
-                                            class="bi del bi-trash fw-bolder fs-5" style="color:red;"></i></button>
+                                            class="bi del bQi-trash fw-bolder fs-5" style="color:red;"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -97,10 +100,50 @@
                 @endif
             </tbody>
             @if (@session('msg'))
-                <div class="evento-confirmado bg-success p-4 rounded-2">
+                <div class="evento-confirmado bg-success p-4 rounded-2 w-75 mx-auto">
                     <h3 class="text-center fw-bold m-0" style="color:rgb(2, 42, 2);">{{ session('msg') }}</h3>
                 </div>
             @endif
         </table>
+
+        <div class="modal fade" id="lixeira" tabindex="-1" aria-labelledby="modal-lixeira" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modal-lixeira">Lixeira</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($livrosDeletados as $del)
+                                    <tr>
+                                        <td>{{ $del->id }}</td>
+                                        <td>{{ $del->titulo }}</td>
+                                        <td>{{ $del->autor }}</td>
+                                        <td class="d-flex gap-2">
+                                            <a href="/restore/{{ $del->id }}" class="btn btn-primary">Restaurar</a>
+                                            <a href="/events/delete/{{ $del->id }}"
+                                                class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
