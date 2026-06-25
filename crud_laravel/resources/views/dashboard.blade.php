@@ -78,7 +78,7 @@
                 @if (count($livros) != 0)
                     @foreach ($livros as $l)
                         <tr class="table-light">
-                            <td>{{ $l->id }}</td>
+                            <td>{{ $loop->index+1 }}</td>
                             <td>{{ $l->titulo }}</td>
                             <td>{{ $l->autor }}</td>
                             <td>{{ $l->paginas }}</td>
@@ -126,7 +126,7 @@
                             <tbody>
                                 @foreach ($livrosDeletados as $del)
                                     <tr>
-                                        <td>{{ $del->id }}</td>
+                                        <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $del->titulo }}</td>
                                         <td>{{ $del->autor }}</td>
                                         <td class="d-flex gap-2">
