@@ -46,16 +46,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/cadastro" class="nav-link text-white">
+                        <a href="/register" class="nav-link text-white">
                             Cadastrar
                         </a>
                     </li>
                 @endguest
                 @auth
                     <li class="nav-item">
-                        <a href="/logout" class="nav-link text-white">
-                            Sair
-                        </a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <a href="/logout" class="nav-link text-white"
+                                onclick="event.preventDefault();this.closest('form').submit()">Sair</a>
+                        </form>
                     </li>
                 @endauth
             </ul>
